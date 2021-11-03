@@ -1,16 +1,16 @@
-<html>
-  <head>
-    <title>Bookers2</title>
-  </head>
+<% books.each do |book| %>  <!-- @post_images → post_images -->
+<div>
+<h1>User info</h1>
+  <%= attachment_image_tag user, :profile_image, :fill, 100, 100, format: 'jpeg', fallback: "no_image.jpg" %>
+  <% if user.id == current_user.id %>
+  <h3><%= user.name %></h3>
+  <h3><%= user.introduction %></h3>
+    <p><%= link_to "設定", edit_user_path(user) %></p>
+  <% end %>
+</div>
 
-  <body>
-   <main>
-   <div class="container">
-    <div class="row">
-     <div class= "col-4">
-
-    <h2>New book<h2>
-        <%= form_with model: @book, local: true do |f| %>
+<h2>New book<h2>
+        <%= form_with model: book, local: true do |f| %>
   　　　　　<div class="form-group">
     　 　　<%= f.label :title %><br>
          <%= f.text_field :title, class: "form-control" %>
@@ -26,6 +26,7 @@
          </div>
 
          <div class="col-lg-">
+
          <h2>Books</h2>
           <table>
            <thead>
@@ -36,7 +37,7 @@
             </tr>
            </thead>
          <tbody>
-            <% @books.each do |book| %>
+            <% books.each do |book| %>
               <tr>
               <td><%= image_tag('no_image.jpg') %></td>
               <td><%= book.title %></td>
@@ -45,8 +46,5 @@
               </tr>
             </table>
             </div>
-            </div>
-            </div>
-          </main>
-       </body>
-     </html>
+
+            <%= paginate books %>  <!-- @post_images → post_images -->
