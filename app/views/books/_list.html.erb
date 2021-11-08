@@ -6,7 +6,9 @@
      <th><%=user.name %></th>
      <th><%=user.introduction %></th>
     <tr>
-     <p><%= link_to "設定", edit_user_path(user) %></p>
+     <i class="fas fa-user-edit">
+      <p><%= link_to "設定", edit_user_path(user) %></p>
+     </i>
    </tbody>
   </table>
 

@@ -21,8 +21,8 @@
        <td><%= @books.user.name %></td>
        <% if @books.user == current_user %>
        <% end %>
-         <td><%= link_to "Edit",edit_book_path(@books)%></td>
-         <td><%= link_to "Destroy", book_path(@books), method: :delete %></td>
+         <td><%= link_to "Edit",edit_book_path, class: "btn btn-secondary" %></td>
+         <td><%= link_to "Destroy", book_path, class: "btn btn-secondary" , method: :delete %></td>
   　　　</tr>
  　　　</tbody>
 　　</table>
