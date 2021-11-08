@@ -1,13 +1,26 @@
-<h1>Editing Book</h1>
-<%= form_with model:@book , local:true do |f| %>
+<div class="container">
+ <div class="row">
+  <div class="col-sm12 col-md-8 col-lg-5 pc-5 px-sm-0 mx-auto">
+   <h1>Editing Book</h1>
+     <%= form_with model:@book , local:true do |f| %>
 
-  <h5>Title</h5>
-  <%= f.text_field :title %>
+      <div class="form-group">
+       <label for="book_title">Title</label></br>
+       <%= f.text_field :title %>
+      </div>
 
-  <h5>Body</h5>
-  <%= f.text_area :body %>
-  <%= f.submit 'Update Book' %>
-<% end %>
+      <div class="form-group">
+       <label for="book_opinion">Opinion</label></br>
+       <%= f.text_area :body %>
+      </div>
 
-<%= link_to "Show", book_path(@book) %>
-<%= link_to "Back", books_path %>
+      <div class="form-group">
+       <%= f.submit 'Update Book' %>
+      </div>
+     <% end %>
+
+      <%= link_to "Show", book_path(@book) %>
+      <%= link_to "Back", books_path %>
+  </div>
+ </div>
+</div>
