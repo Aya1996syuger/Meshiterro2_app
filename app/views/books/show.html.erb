@@ -11,18 +11,30 @@
   </div>
 
   <div class="col-md-8 offset-md-1">
-   <h2>Books detail</h2>
+   <h2>Book detail</h2>
     <table class="table">
      <tbody>
       <tr>
-       <td><%= image_tag('no_image.jpg') %></td>
-       <td><%= @books.title %></td>
-       <td><%= @books.body %></td>
-       <td><%= @books.user.name %></td>
-       <% if @books.user == current_user %>
-       <% end %>
-         <td><%= link_to "Edit",edit_book_path, class: "btn btn-secondary" %></td>
-         <td><%= link_to "Destroy", book_path, class: "btn btn-secondary" , method: :delete %></td>
+       <td>
+　　　  <%= link_to user_path(@books.user_id) do%>
+　　　   <%= attachment_image_tag @user, :profile_image, :fill, 40, 40, fallback: "no_image.jpg",size: "40x40"%>
+　　　  <% end %>
+　　　 </td>
+　　　  <td>
+         <%= link_to book_path(@books) do%>
+         <%= @books.title %>
+         <% end %>
+        </td>
+        <td><%= @books.body %></td>
+        <td>
+          <%=link_to user_path(@books.user_id) do %>
+           <%= @user.name%>
+          <% end %>
+        </td>
+          <% if @books.user == current_user %>
+            <td><%= link_to "Edit",edit_book_path, class: "btn btn-secondary" %></td>
+            <td><%= link_to "Destroy", book_path, class: "btn btn-secondary" , method: :delete %></td>
+          <% end %>
   　　　</tr>
  　　　</tbody>
 　　</table>
